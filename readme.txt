@@ -20,7 +20,10 @@ A **super fast** **WordPress star rating plugin**, optimized for SEO, and with a
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Configure the plugin according to your needs. If you need help you can visit [the plugin page](http://emiliocobos.net/ec-stars-rating-wordpress-plugin/)
 4. Place the following snippet where you want the stars to appear (normally `single.php`, `content-single.php` or `index.php`):
-`<?php if(function_exists('ec_stars_rating')) { ec_stars_rating(); } ?>`
+`<?php 
+	if(function_exists('ec_stars_rating')) {
+		ec_stars_rating(); 
+} ?>`
 
 == Frequently asked questions ==
 
