@@ -2,9 +2,9 @@
 /*
 Plugin Name: EC Stars Rating
 Plugin URI: http://emiliocobos.net/ec-stars-rating-wordpress-plugin
-Description: EC Stars rating es el sistema de calificación por estrellas más sencillo y ligero que podrás encontrar en todo el directorio
+Description: EC Stars rating is the most lightweight and simple stars rating system for WordPress you can find in the whole directory
 Version: 1.0.2
-Author: Emilio Cobos
+Author: Emilio Cobos Álvarez
 Author URI: http://emiliocobos.net/
 */
 
@@ -33,6 +33,8 @@ class ECStarsRating {
 		// $this->url = plugin_dir_url(__FILE__);
 		// $this->path = plugin_dir_path(__FILE__);
 
+		// Translations
+		add_action('plugins_loaded', array($this, '_load_textdomain'));
 		// Add the head script and styles
 		add_action('wp_head', array($this, 'head'));
 
@@ -168,9 +170,17 @@ class ECStarsRating {
 		</style><?php
 	}
 
+	/**
+	 * Load the plugin textdomain
+	 * @return void
+	 */
+	public function _load_textdomain() {
+		load_plugin_textdomain( $this->textdomain, null, dirname(__FILE__) . '/languages/' );
+	}
 
 	/**
 	 * Private functions for options
+	 * @return void
 	 */
 	public function _set_options() {
 		$this->create_table();
@@ -185,6 +195,7 @@ class ECStarsRating {
 
 	/**
 	 * Delete the options from the database
+	 * @return void
 	 */
 	public function _unset_options() {
 		// global $wpdb;
@@ -419,8 +430,8 @@ class ECStarsRating {
 		$current_val = get_option($args['id']);
 		?>
 		<select name="<?php echo $args['id'] ?>" id="<?php echo $args['id'] ?>">
-			<option value="1"><?php _e('Sí') ?></option>
-			<option value="0"<?php if($current_val == 0) echo ' selected'?>><?php _e('No') ?></option>
+			<option value="1"><?php _e('Yes', $this->textdomain) ?></option>
+			<option value="0"<?php if($current_val == 0) echo ' selected'?>><?php _e('No', $this->textdomain) ?></option>
 		</select>
 		<?php
 	}
