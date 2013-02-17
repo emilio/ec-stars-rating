@@ -27,7 +27,7 @@ Actually, microdata is recommended by Google, but with microformats google detec
 
 ## Changelog ##
 
-### = 1.0.2 =
+### 1.0.2 ###
 Internationalization
 
 ### 1.0.1 ###
