@@ -20,9 +20,8 @@ A **super fast** **WordPress star rating plugin**, optimized for SEO, and with a
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Configure the plugin according to your needs. If you need help you can visit [the plugin page](http://emiliocobos.net/ec-stars-rating-wordpress-plugin/)
 4. Place the following snippet where you want the stars to appear (normally `single.php`, `content-single.php` or `index.php`):
-`<?php 
-	if(function_exists('ec_stars_rating')) {
-		ec_stars_rating(); 
+`<?php if(function_exists('ec_stars_rating')) {
+	ec_stars_rating(); 
 } ?>`
 
 == Frequently asked questions ==
@@ -37,10 +36,16 @@ Actually, microdata is recommended by Google, but with microformats google detec
 
 == Changelog ==
 
+= 1.0.1 =
+A bit of performance improvements and more accessibility and documentation
+
 = 1.0 =
 Initial stable release, with some number format fixes.
 
 == Upgrade notice ==
+
+= 1.0.1 =
+Upgrade for better performance
 
 = 1.0 =
 If you use a previous version, update now

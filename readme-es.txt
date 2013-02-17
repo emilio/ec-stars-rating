@@ -37,10 +37,16 @@ Actualmente, microdata es el recomendado por Google, pero con microformats Googl
 
 == Changelog ==
 
+= 1.0.1 =
+Pequeña mejora en el rendimiento, accesibilidad y más documentación
+
 = 1.0 =
 Primera versión estable, con algunos errores de formato de los números arreglados.
 
 == Upgrade notice ==
+
+= 1.0.1 =
+Actualiza para una pequeña mejora en el rendimiento
 
 = 1.0 =
 Si usas una versión antigua, actualiza lo más pronto posible

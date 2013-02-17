@@ -3,7 +3,7 @@
 Plugin Name: EC Stars Rating
 Plugin URI: http://emiliocobos.net/ec-stars-rating-wordpress-plugin
 Description: EC Stars rating es el sistema de calificación por estrellas más sencillo y ligero que podrás encontrar en todo el directorio
-Version: 1.0
+Version: 1.0.1
 Author: Emilio Cobos
 Author URI: http://emiliocobos.net/
 */
@@ -12,7 +12,6 @@ Author URI: http://emiliocobos.net/
  * Base plugin class
  * @author Emilio Cobos <http://emiliocobos.net/>
  */
-ini_set('display_errors', true);
 class ECStarsRating {
 	/**
 	 * Variables privadas para el plugin
@@ -47,7 +46,7 @@ class ECStarsRating {
 		add_action('admin_init', array($this, '_register_settings'));
 		add_action('admin_menu', array($this, '_add_menu_page'));
 
-		// AJAX functionality
+		// AJAX functionality for admin and for users
 		add_action('wp_ajax_ec_stars_rating', array($this, '_handle_vote'));
 		add_action('wp_ajax_nopriv_ec_stars_rating', array($this, '_handle_vote'));
 	}
@@ -60,13 +59,18 @@ class ECStarsRating {
 		$this->headCSS();
 	}
 
-	/* The main script */
+	/**
+	 * Enqueue the main script, usin jQuery or not
+	 * @return void
+	 * @see wp_enqueue_script
+	 */
 	public function headScript() {
 		if( get_option('ec_stars_rating_use_jquery') ) {
 			wp_enqueue_script( 'ec-stars-script', plugins_url( '/js/ec-stars-rating.js', __FILE__ ), array('jquery'));
 		} else {
 			wp_enqueue_script( 'ec-stars-script', plugins_url('/js/ec-stars-rating-nojq.js', __FILE__));
 		}
+		// The script with our messages, url, and status codes
 		wp_localize_script( 'ec-stars-script', 'ec_ajax_data', array(
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'codes' => array(
@@ -84,16 +88,27 @@ class ECStarsRating {
 		));
 	}
 
+	/**
+	 * Get the cookie name used for avoid duplicate votes
+	 * @param int post_id
+	 * @return string the cookie name
+	 */
 	public function getCookieName($post_id) {
 		return 'ec_sr_' . $post_id;
 	}
 
+	/**
+	 * Get the table name used for avoid duplicate votes
+	 * @return string the table name
+	 */
 	public function getTableName() {
 		global $wpdb;
 		return $wpdb->prefix . 'ec_stars_votes';
 	}
 
-	/* The head CSS, with the custom options */
+	/**
+	 * The head CSS, with the custom options
+	 */
 	public function headCSS() {
 		?>
 		<style id="ec_stars_rating_head_css">
@@ -157,34 +172,38 @@ class ECStarsRating {
 	}
 
 
-	/*
+	/**
 	 * Private functions for options
 	 */
 	public function _set_options() {
 		$this->create_table();
 		add_option('ec_stars_rating_size', '32');
 		add_option('ec_stars_rating_show_votes', true);
-		add_option('ec_stars_rating_use_jquery', true);
 		add_option('ec_stars_rating_use_microformats', false);
+		add_option('ec_stars_rating_use_jquery', true);
 		add_option('ec_stars_rating_default_color', '#888888');
 		add_option('ec_stars_rating_hover_color', '#2782e4');
 		add_option('ec_stars_rating_active_color', '#1869c0');
 	}
 
+	/**
+	 * Delete the options from the database
+	 */
 	public function _unset_options() {
-		global $wpdb;
-
-		delete_option('ec_stars_rating_show_votes');
-		delete_option('ec_stars_rating_force_stars');
+		// global $wpdb;
 		delete_option('ec_stars_rating_size');
+		delete_option('ec_stars_rating_show_votes');
+		delete_option('ec_stars_rating_use_microformats');
 		delete_option('ec_stars_rating_use_jquery');
 		delete_option('ec_stars_rating_default_color');
 		delete_option('ec_stars_rating_hover_color');
 		delete_option('ec_stars_rating_active_color');
 		// $wpdb->query($wpdb->prepare("DROP TABLE %s", $this->getTableName()));
-
 	}
 
+	/** 
+	 * Register the settings page for the admin
+	 */
 	public function _register_settings() {
 		register_setting('ec_stars_rating', 'ec_stars_rating_size', 'intval');
 		add_settings_section(
@@ -243,10 +262,13 @@ class ECStarsRating {
 		);
 	}
 
+	/**
+	 * Create the table where the votes are going to be stored
+	 */
 	public function create_table() {
 		global $wpdb;
 		$table = $this->getTableName();
-		$sql = "CREATE TABLE $table (
+		$sql = "CREATE TABLE IF NOT EXISTS $table (
 				`voter_ip` VARCHAR(15) NOT NULL,
 				`post_id` BIGINT(20) UNSIGNED NOT NULL,
 				KEY `post_id`(`post_id`),
@@ -255,45 +277,73 @@ class ECStarsRating {
 		$wpdb->query($sql);
 	}
 
+	/**
+	 * Validate a color input
+	 * @param string $color the color input
+	 */
 	public function _validate_color($color) {
 		if( preg_match("/^(#([A-fa-f0-9]{3}|[A-fa-f0-9]{6}))|(rgb\(\d{1,3},\s?\d{1,3},\s?\d{1,3}\))|(rgba\(\d{1,3},\s?\d{1,3},\s?\d{1,3},\s?\d{1,3}\))$/", $color) ) {
 			return $color;
 		}
 		add_settings_error(
-			'ec_stars_rating',           // setting title
-			'ec_stars_rating_error',            // error ID
-			'Introduce un color correcto',   // error message
-			'error'                        // type of message
+			'ec_stars_rating',
+			'ec_stars_rating_error',
+			__('Introduce un color correcto'),
+			'error'
 		);
 	}
+
+	/**
+	 * Add a page in the admin menu
+	 */
 	public function _add_menu_page() {
 		add_options_page( __('EC Stars Rating Options'), 'EC Stars Rating', 'administrator', __FILE__, array($this, '_options_page'));
 	}
 
+	/**
+	 * Get a vote from the DB
+	 * @param int $post_id
+	 * @param string $voter_ip the voter ip
+	 * @see WPDB::get_row
+	 */
+	public function getVote($post_id, $voter_ip) {
+		global $wpdb;
+		return $wpdb->get_row($wpdb->prepare("SELECT `post_id` FROM $table WHERE `voter_ip` = %s AND `post_id` = %d LIMIT 0, 1", $voter_ip, $post_id));
+	}
+
+	/**
+	 * Register the vote in the db
+	 */
 	public function _handle_vote() {
 		global $wpdb;
+		$table = $this->getTableName();
 
 		if( ! defined('YEAR_IN_SECONDS') ) {
 			define('YEAR_IN_SECONDS', 365 * 24 * 60 * 60);
 		}
-
-		$table = $this->getTableName();
+		/* Get the POST request data */
+		// The post id
 		$post_id = intval(@$_POST['post_id']);
+		// The rating value (1-5)
 		$rating = intval(@$_POST['rating']);
-		$cookie_name = $this->getCookieName($post_id);
+		// The ip
 		$IP = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-		$vote = $wpdb->get_row($wpdb->prepare("SELECT `post_id` FROM $table WHERE `voter_ip` = %s AND `post_id` = %d LIMIT 0, 1", $IP, $post_id));
 
-		if( isset($_COOKIE[$cookie_name]) || $vote !== null) {
+		$cookie_name = $this->getCookieName($post_id);
+
+		// If we have voted set the cookie and return
+		if( isset($_COOKIE[$cookie_name]) || $this->getVote($post_id, $IP) !== null) {
 			setcookie( $cookie_name, 'true', time() + YEAR_IN_SECONDS, '/');
 			die(json_encode(array('status' => $this->STATUS_PREVIOUSLY_VOTED)));
 		}
 
 
+		// else get the current rating and increase it appropiately
 		$current_rating = intval(get_post_meta($post_id, 'ec_stars_rating', true));
 		$current_votes = intval(get_post_meta($post_id, 'ec_stars_rating_count', true));
 
-		if( (empty($current_rating) && $current_rating !== 0) || (empty($current_votes) && $current_votes !== 0) ) {
+		// if there is no rating or no votes, or the rating is invalid, return
+		if( (empty($current_rating) && $current_rating !== 0) || (empty($current_votes) && $current_votes !== 0) || $rating > 5 || $rating < 1) {
 			die(json_encode(array(
 				'status' => $this->STATUS_REQUEST_ERROR,
 				'current_votes' => $current_votes,
@@ -301,8 +351,11 @@ class ECStarsRating {
 			)));
 		}
 
+		// Update with the new rating
 		update_post_meta($post_id, 'ec_stars_rating', $current_rating + $rating);
 		update_post_meta($post_id, 'ec_stars_rating_count', $current_votes + 1);
+
+		// Insert the vote in the db and set the cookie for a year
 		$wpdb->insert(
 			$table,
 			array(
@@ -313,6 +366,7 @@ class ECStarsRating {
 		);
 		setcookie( $cookie_name, 'true', time() + YEAR_IN_SECONDS, '/');
 
+		// Return a success message
 		die(json_encode(array(
 			'status' => $this->STATUS_SUCCESS,
 			'votes' => $current_votes + 1,
@@ -321,6 +375,9 @@ class ECStarsRating {
 		)));
 	}
 
+	/**
+	 * The options page
+	 */
 	public function _options_page() {
 		?><div class="wrap">
 			<?php screen_icon(); ?>
@@ -334,6 +391,12 @@ class ECStarsRating {
 			</form>
 		</div><?php
 	}
+
+	/**
+	 * Get a number input for the options page
+	 * @param array $args the arguments returned
+	 * @see ECStarsRating::_register_settings()
+	 */
 	public function _number_input($args) {
 		?>
 		<input value="<?php echo get_option($args['id']) ?>" min="1" type="number" pattern="[0-9]+" id="<?php echo $args['id'] ?>" name="<?php echo $args['id'] ?>">
@@ -341,47 +404,66 @@ class ECStarsRating {
 		<?php
 	}
 
+	/**
+	 * Get a color input for the options page
+	 * @param array $args
+	 */
 	public function _color_input($args) {
 		?>
 		<input type="color" value="<?php echo get_option($args['id']) ?>" id="<?php echo $args['id'] ?>" name="<?php echo $args['id'] ?>">
-		<!-- <label for="<?php echo $args['id'] ?>"><?php echo $args['title'] ?></label> -->
+		<label class="screen-reader-text" for="<?php echo $args['id'] ?>"><?php echo $args['title'] ?></label>
 		<?php
 	}
+	/**
+	 * Get a boolean input for the options page
+	 * @param array $args
+	 */
 	public function _bool_input($args) {
 		$current_val = get_option($args['id']);
 		?>
 		<select name="<?php echo $args['id'] ?>" id="<?php echo $args['id'] ?>">
-			<option value="1">Sí</option>
-			<option value="0"<?php if($current_val == 0) echo ' selected'?>>No</option>
+			<option value="1"><?php _e('Sí') ?></option>
+			<option value="0"<?php if($current_val == 0) echo ' selected'?>><?php _e('No') ?></option>
 		</select>
 		<?php
 	}
 }
 
+// Create the instance of our plugin
 $ecStarRating = new ECStarsRating();
 
+/**
+ * Show the ratings in the loop
+ */
 function ec_stars_rating() {
 	global $post;
+	// Get the post rating, votes and options
 	$rating = get_post_meta($post->ID, 'ec_stars_rating', true);
 	$votes = get_post_meta($post->ID, 'ec_stars_rating_count', true);
 	$microformats = get_option('ec_stars_rating_use_microformats');
+
+	// if the rating is an empty string (we cannot use empty because empty('0') is true) create the post meta
 	if( $rating === '' ) {
 		$rating = 0;
 		add_post_meta($post->ID, 'ec_stars_rating', 0);
 	}
+	// The same but for the votes count
 	if( $votes === '' ) {
 		$votes = 0;
 		add_post_meta($post->ID, 'ec_stars_rating_count', 0);
 	}
 
+	// Cast them as int
 	$votes = intval($votes);
 	$rating = intval($rating);
 	
+	// Prevent division by 0
 	if( $votes === 0 ) {
 		$result = 0;
 	} else {
 		$result = $rating / $votes;
 	}
+// Show the data!
 ?>
 <div class="ec-stars-outer<?php if($microformats) { echo ' hreview-aggregate';} ?>"<?php if( ! $microformats ) { echo ' itemscope itemtype="http://schema.org/AggregateRating"'; }?>>
 	<div class="ec-stars-wrapper" data-post-id="<?php echo $post->ID ?>">
@@ -392,14 +474,15 @@ function ec_stars_rating() {
 		<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
 		<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
 	</div>
-	<?php if(get_option('ec_stars_rating_show_votes')): ?>
+	<?php if(get_option('ec_stars_rating_show_votes')): // If we want to show the votes?>
 		<div class="ec-stars-value">
-			<?php if($microformats): ?>
-			<span<?php if($microformats){ echo ' class="item"'; }else{ echo ' itemprop="itemReviewed" itemtype="http://schema.org/Product" itemscope';} ?>>
-				<a href="<?php the_permalink() ?>" <?php if($microformats) {echo ' class="fn url"';} else {echo ' itemprop="name url"';} ?>><?php the_title() ?></a>,
+			<?php if($microformats): // If we want to use microformats we need to put a link to the post?>
+			<span class="item">
+				<a href="<?php the_permalink() ?>" class="fn url"><?php the_title() ?></a>,
 			</span>
 			<?php endif; ?>
 			<span <?php echo 'class="ec-stars-rating-value'; if($microformats) {echo ' rating"';} else { echo '" itemprop="ratingValue"'; }?>><?php
+				// Show just two decimals
 				echo is_int($result) ? $result : number_format($result, 2);
 			?></span> / <span>5</span> (<span<?php echo ' class="ec-stars-rating-count'; if ($microformats) echo ' votes"'; else echo '" itemprop="ratingCount"'; ?>><?php echo $votes ?></span> <?php echo __('votos') ?>)
 		</div>
