@@ -36,6 +36,9 @@ Actually, microdata is recommended by Google, but with microformats google detec
 
 == Changelog ==
 
+= 1.0.2.1 =
+Include language files
+
 = 1.0.2 =
 Internationalization
 

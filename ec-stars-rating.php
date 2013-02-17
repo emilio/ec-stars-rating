@@ -3,7 +3,7 @@
 Plugin Name: EC Stars Rating
 Plugin URI: http://emiliocobos.net/ec-stars-rating-wordpress-plugin
 Description: EC Stars rating is the most lightweight and simple stars rating system for WordPress you can find in the whole directory
-Version: 1.0.2
+Version: 1.0.2.1
 Author: Emilio Cobos Álvarez
 Author URI: http://emiliocobos.net/
 */
