@@ -175,7 +175,7 @@ class ECStarsRating {
 	 * @return void
 	 */
 	public function _load_textdomain() {
-		load_plugin_textdomain( $this->textdomain, null, dirname(__FILE__) . '/languages/' );
+		load_plugin_textdomain( $this->textdomain, null, dirname(plugin_basename(__FILE__)) . '/languages/' );
 	}
 
 	/**
