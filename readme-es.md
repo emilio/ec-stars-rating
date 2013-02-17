@@ -31,6 +31,9 @@ Actualmente, microdata es el recomendado por Google, pero con microformats Googl
 
 ## Changelog ##
 
+### 1.0.2 ###
+Internacionalización
+
 ### 1.0.1 ###
 Pequeña mejora en el rendimiento, accesibilidad y más documentación
 

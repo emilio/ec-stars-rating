@@ -2,9 +2,9 @@
 /*
 Plugin Name: EC Stars Rating
 Plugin URI: http://emiliocobos.net/ec-stars-rating-wordpress-plugin
-Description: EC Stars rating es el sistema de calificación por estrellas más sencillo y ligero que podrás encontrar en todo el directorio
-Version: 1.0.1
-Author: Emilio Cobos
+Description: EC Stars rating is the most lightweight and simple stars rating system for WordPress you can find in the whole directory
+Version: 1.0.2
+Author: Emilio Cobos Álvarez
 Author URI: http://emiliocobos.net/
 */
 
@@ -13,11 +13,8 @@ Author URI: http://emiliocobos.net/
  * @author Emilio Cobos <http://emiliocobos.net/>
  */
 class ECStarsRating {
-	/**
-	 * Variables privadas para el plugin
-	 */
-	public $url;
-	public $path;
+	/* the text domain */
+	public $textdomain = 'ec-stars-rating';
 
 	/**
 	 * Response statuses
@@ -36,6 +33,8 @@ class ECStarsRating {
 		// $this->url = plugin_dir_url(__FILE__);
 		// $this->path = plugin_dir_path(__FILE__);
 
+		// Translations
+		add_action('plugins_loaded', array($this, '_load_textdomain'));
 		// Add the head script and styles
 		add_action('wp_head', array($this, 'head'));
 
@@ -80,10 +79,10 @@ class ECStarsRating {
 				'UNKNOWN' => $this->STATUS_UNKNOWN
 			),
 			'messages' => array(
-				'success' => __('Has votado correctamente'),
-				'previously_voted' => __('Ya habías votado anteriormente'),
-				'request_error' => __('La solicitud ha sido mal formada'),
-				'unknown' => __('Ha ocurrido un error desconocido')
+				'success' => __('You\'ve voted correctly', $this->textdomain),
+				'previously_voted' => __('You had previously voted', $this->textdomain),
+				'request_error' => __('The request was malformed, try again', $this->textdomain),
+				'unknown' => __('An unknown error has occurred, try to vote again', $this->textdomain)
 			)
 		));
 	}
@@ -171,9 +170,17 @@ class ECStarsRating {
 		</style><?php
 	}
 
+	/**
+	 * Load the plugin textdomain
+	 * @return void
+	 */
+	public function _load_textdomain() {
+		load_plugin_textdomain( $this->textdomain, null, dirname(plugin_basename(__FILE__)) . '/languages/' );
+	}
 
 	/**
 	 * Private functions for options
+	 * @return void
 	 */
 	public function _set_options() {
 		$this->create_table();
@@ -188,6 +195,7 @@ class ECStarsRating {
 
 	/**
 	 * Delete the options from the database
+	 * @return void
 	 */
 	public function _unset_options() {
 		// global $wpdb;
@@ -208,7 +216,7 @@ class ECStarsRating {
 		register_setting('ec_stars_rating', 'ec_stars_rating_size', 'intval');
 		add_settings_section(
 			'ec_stars_rating_size',
-			__('Tamaño de las estrellas (px) <em>por defecto 32, escoge el que se adapte a tus necesidades</em>'),
+			__('Stars size in px <em>default is 32, chose the one that fits your needs</em>', $this->textdomain),
 			array($this, '_number_input'),
 			__FILE__
 		);
@@ -216,7 +224,7 @@ class ECStarsRating {
 		register_setting('ec_stars_rating', 'ec_stars_rating_default_color', array($this, '_validate_color'));
 		add_settings_section(
 			'ec_stars_rating_default_color',
-			__('Color de las estrellas sin activar'),
+			__('The color of the non-active stars', $this->textdomain),
 			array($this, '_color_input'),
 			__FILE__
 		);
@@ -224,7 +232,7 @@ class ECStarsRating {
 		register_setting('ec_stars_rating', 'ec_stars_rating_hover_color', array($this, '_validate_color'));
 		add_settings_section(
 			'ec_stars_rating_hover_color',
-			__('Color de las estrellas al pasar el ratón por encima, o de las estrellas votadas'),
+			__('Color of the stars when you hover over them or the voted stars', $this->textdomain),
 			array($this, '_color_input'),
 			__FILE__
 		);
@@ -232,7 +240,7 @@ class ECStarsRating {
 		register_setting('ec_stars_rating', 'ec_stars_rating_active_color', array($this, '_validate_color'));
 		add_settings_section(
 			'ec_stars_rating_active_color',
-			__('Color de las estrellas al hacer click'),
+			__('Color of the stars when you click', $this->textdomain),
 			array($this, '_color_input'),
 			__FILE__
 		);
@@ -240,7 +248,7 @@ class ECStarsRating {
 		register_setting('ec_stars_rating', 'ec_stars_rating_show_votes');
 		add_settings_section(
 			'ec_stars_rating_show_votes',
-			__('¿Mostrar los votos?'),
+			__('Show the votes?', $this->textdomain),
 			array($this, '_bool_input'),
 			__FILE__
 		);
@@ -248,7 +256,7 @@ class ECStarsRating {
 		register_setting('ec_stars_rating', 'ec_stars_rating_use_microformats');
 		add_settings_section(
 			'ec_stars_rating_use_microformats',
-			__('¿Usar microformats? (en caso contrario se usará microdata) (<small>Microdata es el recomendado, pero con microformats se podrán ver las estrellas en google</small>)'),
+			__('Use microformats? (otherwise microdata will be used) (<small>Microdata is recommended, but google will show your microformats\' stars</small>)', $this->textdomain),
 			array($this, '_bool_input'),
 			__FILE__
 		);
@@ -256,7 +264,7 @@ class ECStarsRating {
 		register_setting('ec_stars_rating', 'ec_stars_rating_use_jquery');
 		add_settings_section(
 			'ec_stars_rating_use_jquery',
-			__('¿Usar jQuery? (La inmensa mayoría de las webs con wp lo usan, pero puedes elegir no hacerlo)<br/><small><em>Nota: no hay soporte para IE7, pero es asumible</em></small>'),
+			__('Use jQuery? (Most of WordPress sites use it, but maybe you don\'t)<br/><small><em>Note: if you don\'t use jQuery, IE7 is not supported</em></small>', $this->textdomain),
 			array($this, '_bool_input'),
 			__FILE__
 		);
@@ -288,7 +296,7 @@ class ECStarsRating {
 		add_settings_error(
 			'ec_stars_rating',
 			'ec_stars_rating_error',
-			__('Introduce un color correcto'),
+			__('Choose a valid color', $this->textdomain),
 			'error'
 		);
 	}
@@ -297,7 +305,7 @@ class ECStarsRating {
 	 * Add a page in the admin menu
 	 */
 	public function _add_menu_page() {
-		add_options_page( __('EC Stars Rating Options'), 'EC Stars Rating', 'administrator', __FILE__, array($this, '_options_page'));
+		add_options_page( __('EC Stars Rating Options', $this->textdomain), 'EC Stars Rating', 'administrator', __FILE__, array($this, '_options_page'));
 	}
 
 	/**
@@ -381,7 +389,7 @@ class ECStarsRating {
 	public function _options_page() {
 		?><div class="wrap">
 			<?php screen_icon(); ?>
-			<h2><?php printf(__('Options: %s'), 'EC Stars Rating'); ?></h2>
+			<h2><?php printf(__('Options: %s', $this->textdomain), 'EC Stars Rating'); ?></h2>
 			<form action="options.php" method="post">
 				<?php 
 					settings_fields( 'ec_stars_rating' );
@@ -422,21 +430,22 @@ class ECStarsRating {
 		$current_val = get_option($args['id']);
 		?>
 		<select name="<?php echo $args['id'] ?>" id="<?php echo $args['id'] ?>">
-			<option value="1"><?php _e('Sí') ?></option>
-			<option value="0"<?php if($current_val == 0) echo ' selected'?>><?php _e('No') ?></option>
+			<option value="1"><?php _e('Yes', $this->textdomain) ?></option>
+			<option value="0"<?php if($current_val == 0) echo ' selected'?>><?php _e('No', $this->textdomain) ?></option>
 		</select>
 		<?php
 	}
 }
 
 // Create the instance of our plugin
-$ecStarRating = new ECStarsRating();
+$ecStarsRating = new ECStarsRating();
 
 /**
  * Show the ratings in the loop
  */
 function ec_stars_rating() {
-	global $post;
+	// The global instance is just because the text domain
+	global $post, $ecStarsRating;
 	// Get the post rating, votes and options
 	$rating = get_post_meta($post->ID, 'ec_stars_rating', true);
 	$votes = get_post_meta($post->ID, 'ec_stars_rating_count', true);
@@ -484,7 +493,7 @@ function ec_stars_rating() {
 			<span <?php echo 'class="ec-stars-rating-value'; if($microformats) {echo ' rating"';} else { echo '" itemprop="ratingValue"'; }?>><?php
 				// Show just two decimals
 				echo is_int($result) ? $result : number_format($result, 2);
-			?></span> / <span>5</span> (<span<?php echo ' class="ec-stars-rating-count'; if ($microformats) echo ' votes"'; else echo '" itemprop="ratingCount"'; ?>><?php echo $votes ?></span> <?php echo __('votos') ?>)
+			?></span> / <span>5</span> (<span<?php echo ' class="ec-stars-rating-count'; if ($microformats) echo ' votes"'; else echo '" itemprop="ratingCount"'; ?>><?php echo $votes ?></span> <?php _e('votes', $ecStarsRating->textdomain) ?>)
 		</div>
 	<?php elseif( ! $microformats ): ?>
 		<meta itemprop="bestRating" content="5">

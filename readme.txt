@@ -36,6 +36,9 @@ Actually, microdata is recommended by Google, but with microformats google detec
 
 == Changelog ==
 
+= 1.0.2 =
+Internationalization
+
 = 1.0.1 =
 A bit of performance improvements and more accessibility and documentation
 
@@ -43,6 +46,8 @@ A bit of performance improvements and more accessibility and documentation
 Initial stable release, with some number format fixes.
 
 == Upgrade notice ==
+= 1.0.2 =
+Now this plugin is translatable
 
 = 1.0.1 =
 Upgrade for better performance
