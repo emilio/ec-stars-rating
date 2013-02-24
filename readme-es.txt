@@ -37,6 +37,9 @@ Actualmente, microdata es el recomendado por Google, pero con microformats Googl
 
 == Changelog ==
 
+= 1.0.3 =
+Pequeño fix del sistema de votos, y internacionalización mejorada otra vez
+
 = 1.0.2.1 =
 Incluye archivos de lenguaje
 
@@ -50,6 +53,8 @@ Pequeña mejora en el rendimiento, accesibilidad y más documentación
 Primera versión estable, con algunos errores de formato de los números arreglados.
 
 == Upgrade notice ==
+= 1.0.3 =
+ACTUALIZA URGENTEMENTE PARA GARANTIZAR LA INTEGRIDAD DE TUS VOTOS
 
 = 1.0.2 =
 Internacionalización

@@ -3,7 +3,7 @@
 Plugin Name: EC Stars Rating
 Plugin URI: http://emiliocobos.net/ec-stars-rating-wordpress-plugin
 Description: EC Stars rating is the most lightweight and simple stars rating system for WordPress you can find in the whole directory
-Version: 1.0.2.1
+Version: 1.0.3
 Author: Emilio Cobos Álvarez
 Author URI: http://emiliocobos.net/
 */
@@ -316,6 +316,8 @@ class ECStarsRating {
 	 */
 	public function getVote($post_id, $voter_ip) {
 		global $wpdb;
+		$table = $this->getTableName();
+
 		return $wpdb->get_row($wpdb->prepare("SELECT `post_id` FROM $table WHERE `voter_ip` = %s AND `post_id` = %d LIMIT 0, 1", $voter_ip, $post_id));
 	}
 
@@ -477,11 +479,11 @@ function ec_stars_rating() {
 <div class="ec-stars-outer<?php if($microformats) { echo ' hreview-aggregate';} ?>"<?php if( ! $microformats ) { echo ' itemscope itemtype="http://schema.org/AggregateRating"'; }?>>
 	<div class="ec-stars-wrapper" data-post-id="<?php echo $post->ID ?>">
 		<div class="ec-stars-overlay" style="width: <?php echo (100 - $result * 100 / 5) ?>%"></div>
-		<a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
-		<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-		<a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-		<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-		<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+		<a href="#" data-value="1" title="1/5">&#9733;</a>
+		<a href="#" data-value="2" title="2/5">&#9733;</a>
+		<a href="#" data-value="3" title="3/5">&#9733;</a>
+		<a href="#" data-value="4" title="4/5">&#9733;</a>
+		<a href="#" data-value="5" title="5/5">&#9733;</a>
 	</div>
 	<?php if(get_option('ec_stars_rating_show_votes')): // If we want to show the votes?>
 		<div class="ec-stars-value">
