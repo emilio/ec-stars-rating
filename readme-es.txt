@@ -25,6 +25,10 @@ Un plugin de calificación por estrellas para WordPress **super rápido**, optim
 		ec_stars_rating();
 	} ?>
 
+5. Adicionalmente, si sólo quieres mostrar las estrellas en un post en particular, puedes usar el siguiente shortcode:
+	
+	[ec_stars_rating]
+
 == Frequently asked questions ==
 
 = ¿Qué formato de marcado debería de usar? =
@@ -36,6 +40,9 @@ Actualmente, microdata es el recomendado por Google, pero con microformats Googl
 1. Funcionamiento básico del plugin
 
 == Changelog ==
+
+= 1.0.4 =
+Añadido el shortcode y el widget (beta)
 
 = 1.0.3 =
 Pequeño fix del sistema de votos, y internacionalización mejorada otra vez

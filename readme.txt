@@ -23,6 +23,8 @@ A **super fast** **WordPress star rating plugin**, optimized for SEO, and with a
 `<?php if(function_exists('ec_stars_rating')) {
 	ec_stars_rating(); 
 } ?>`
+5. Additionally, if you just want the rating to appear in a single post, you can use the next shortcode:
+`[ec_stars_rating]`
 
 == Frequently asked questions ==
 
@@ -33,8 +35,12 @@ Actually, microdata is recommended by Google, but with microformats google detec
 == Screenshots ==
 
 1. Plugin basic style
+2. Plugin admin panel
 
 == Changelog ==
+
+= 1.0.4 =
+Added shortcode + Widget (beta)
 
 = 1.0.3 =
 Votes system fix (problem with db), and more internationalization.

@@ -19,6 +19,10 @@ A **super fast** **WordPress star rating plugin**, optimized for SEO, and with a
 } ?>
 ```
 
+5. Additionally, if you just want the rating to appear in a single post, you can use the next shortcode:
+`[ec_stars_rating]`
+
+
 ## Frequently asked questions ##
 
 ### What rich snippets format should I use, microdata or microformats? ###
@@ -26,6 +30,9 @@ A **super fast** **WordPress star rating plugin**, optimized for SEO, and with a
 Actually, microdata is recommended by Google, but with microformats google detects the stars and uses them in your searches ([example](https://www.google.com/search?q=site:emiliocobos.net+ec+stars+rating)).
 
 ## Changelog ##
+
+### 1.0.4 ###
+Added shortcode + Widget (beta)
 
 ### 1.0.3 ###
 Votes system fix (problem with db), and more internationalization.
