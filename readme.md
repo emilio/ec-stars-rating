@@ -4,7 +4,7 @@ A lightweigt, blazing fast star rating plugin for WordPress
 
 ## Description ##
 
-A **super fast** **WordPress star rating plugin**, optimized for SEO, and with a really low impact on page load (just CSS + a bit of HTML, plus de strictly required JS for working).
+A **super fast** **WordPress star rating plugin**, optimized for SEO, and with a really low impact on page load (just CSS + a bit of HTML, plus the strictly required JS for working).
 
 ## Installation ##
 

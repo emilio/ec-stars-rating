@@ -356,9 +356,11 @@ class ECStarsRating {
 		global $wpdb;
 		$table = $this->getTableName();
 
+		// Support for older wp versions
 		if( ! defined('YEAR_IN_SECONDS') ) {
 			define('YEAR_IN_SECONDS', 365 * 24 * 60 * 60);
 		}
+		
 		/* Get the POST request data */
 		// The post id
 		$post_id = intval(@$_POST['post_id']);
