@@ -41,6 +41,9 @@ Actualmente, microdata es el recomendado por Google, pero con microformats Googl
 
 == Changelog ==
 
+= 1.0.5 =
+Asegurar compatibilidad con WP 3.8
+
 = 1.0.4 =
 Añadido el shortcode y el widget (beta)
 
