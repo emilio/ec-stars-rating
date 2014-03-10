@@ -3,7 +3,7 @@
 Plugin Name: EC Stars Rating
 Plugin URI: http://emiliocobos.net/ec-stars-rating-wordpress-plugin
 Description: EC Stars rating is the most lightweight and simple stars rating system for WordPress you can find in the whole directory
-Version: 1.0.5
+Version: 1.0.6
 Author: Emilio Cobos Álvarez
 Author URI: http://emiliocobos.net/
 */
@@ -531,10 +531,9 @@ class ECStarsRating {
 				<span <?php echo 'class="ec-stars-rating-value'; if($microformats) {echo ' rating"';} else { echo '" itemprop="ratingValue"'; }?>><?php
 					// Show just two decimals
 					echo is_int($result) ? $result : number_format($result, 2);
-				?></span> / <span>5</span> (<span<?php echo ' class="ec-stars-rating-count'; if ($microformats) echo ' votes"'; else echo '" itemprop="ratingCount"'; ?>><?php echo $votes ?></span> <?php _e('votes', self::$textdomain) ?>)
+				?></span> / <span <?php echo ($microformats) ? 'class="best"' : 'itemprop="bestRating"' ?>>5</span> (<span<?php echo ' class="ec-stars-rating-count'; if ($microformats) echo ' votes"'; else echo '" itemprop="ratingCount"'; ?>><?php echo $votes ?></span> <?php _e('votes', self::$textdomain) ?>)
 			</div>
 		<?php elseif( ! $microformats ): ?>
-			<meta itemprop="bestRating" content="5">
 			<meta itemprop="ratingValue" content="<?php echo $result ?>">
 			<meta itemprop="ratingCount" content="<?php echo $votes ?>">
 		<?php endif; ?>

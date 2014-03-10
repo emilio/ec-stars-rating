@@ -39,6 +39,9 @@ Actually, microdata is recommended by Google, but with microformats google detec
 
 == Changelog ==
 
+= 1.0.6 =
+Add best rating metadata to avoid GWT error
+
 = 1.0.5 =
 Ensure WP 3.8 compatibility
 
