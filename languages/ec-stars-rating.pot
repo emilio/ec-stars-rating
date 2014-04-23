@@ -1,0 +1,138 @@
+# Copyright (C) 2013 EC Stars Rating
+# This file is distributed under the same license as the EC Stars Rating package.
+msgid ""
+msgstr ""
+"Project-Id-Version: EC Stars Rating 1.0.4\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/ec-stars-rating\n"
+"POT-Creation-Date: 2013-06-05 02:11:53+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: ec-stars-rating-widget.php:7
+msgid "EC stars rating's best rated posts"
+msgstr ""
+
+#: ec-stars-rating-widget.php:8
+msgid "Best rated posts widget"
+msgstr ""
+
+#: ec-stars-rating-widget.php:60
+msgid "Top Rated Posts"
+msgstr ""
+
+#: ec-stars-rating-widget.php:64
+msgid "Title:"
+msgstr ""
+
+#: ec-stars-rating-widget.php:68
+msgid "Number of posts to display:"
+msgstr ""
+
+#: ec-stars-rating.php:100
+msgid "You've voted correctly"
+msgstr ""
+
+#: ec-stars-rating.php:101
+msgid "You had previously voted"
+msgstr ""
+
+#: ec-stars-rating.php:102
+msgid "The request was malformed, try again"
+msgstr ""
+
+#: ec-stars-rating.php:103
+msgid "An unknown error has occurred, try to vote again"
+msgstr ""
+
+#: ec-stars-rating.php:238
+msgid ""
+"Stars size in px <em>default is 32, chose the one that fits your needs</em>"
+msgstr ""
+
+#: ec-stars-rating.php:246
+msgid "The color of the non-active stars"
+msgstr ""
+
+#: ec-stars-rating.php:254
+msgid "Color of the stars when you hover over them or the voted stars"
+msgstr ""
+
+#: ec-stars-rating.php:262
+msgid "Color of the stars when you click"
+msgstr ""
+
+#: ec-stars-rating.php:270
+msgid "Show the votes?"
+msgstr ""
+
+#: ec-stars-rating.php:279
+msgid ""
+"Use microformats? (otherwise microdata will be used) (<small>Microdata is "
+"recommended, but google will show your microformats' stars</small>)"
+msgstr ""
+
+#: ec-stars-rating.php:287
+msgid ""
+"Use jQuery? (Most of WordPress sites use it, but maybe you don't)<br/"
+"><small><em>Note: if you don't use jQuery, IE7 is not supported</em></small>"
+msgstr ""
+
+#: ec-stars-rating.php:295
+msgid ""
+"Enable widget? (<small>You can disable it if you want an extra performance "
+"boost</small>)"
+msgstr ""
+
+#: ec-stars-rating.php:327
+msgid "Choose a valid color"
+msgstr ""
+
+#: ec-stars-rating.php:336
+msgid "EC Stars Rating Options"
+msgstr ""
+
+#: ec-stars-rating.php:422
+msgid "Options: %s"
+msgstr ""
+
+#: ec-stars-rating.php:463
+msgid "Yes"
+msgstr ""
+
+#: ec-stars-rating.php:464
+msgid "No"
+msgstr ""
+
+#: ec-stars-rating.php:532
+msgid "votes"
+msgstr ""
+
+#: ec-stars-rating.php:540
+msgid "You need to enable JavaScript to vote"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "EC Stars Rating"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://emiliocobos.net/ec-stars-rating-wordpress-plugin"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"EC Stars rating is the most lightweight and simple stars rating system for "
+"WordPress you can find in the whole directory"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Emilio Cobos Álvarez"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://emiliocobos.net/"
+msgstr ""

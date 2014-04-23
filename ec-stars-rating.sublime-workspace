@@ -1,0 +1,1145 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"new",
+				"newsletter-height"
+			],
+			[
+				"border-ri",
+				"border-right-width"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"mess",
+				"messagetype"
+			],
+			[
+				"messa",
+				"message"
+			],
+			[
+				"subs",
+				"subscription"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"thumb",
+				"thumb-padding"
+			],
+			[
+				"PIS",
+				"PISO_SISO_Sub"
+			],
+			[
+				"PI",
+				"PISO_SISO_Sub"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"utf",
+				"utf8_general_ci"
+			],
+			[
+				"categoria",
+				"categoria_id"
+			],
+			[
+				"cla",
+				"claves"
+			],
+			[
+				"KE",
+				"KEY_MAX"
+			],
+			[
+				"KEY",
+				"KEY_MIN"
+			],
+			[
+				"KEY_",
+				"KEY_MAX"
+			],
+			[
+				"sec",
+				"seconds_index"
+			],
+			[
+				"se",
+				"seconds_pointer"
+			],
+			[
+				"ma",
+				"matriz_2"
+			],
+			[
+				"matr",
+				"matriz_1"
+			],
+			[
+				"matriz_",
+				"matriz_2"
+			],
+			[
+				"mat",
+				"matriz"
+			],
+			[
+				"max_",
+				"MAX_X"
+			],
+			[
+				"max",
+				"MAX_Y"
+			],
+			[
+				"MA",
+				"MAX_Y"
+			],
+			[
+				"MAX",
+				"MAX_Y"
+			],
+			[
+				"Max",
+				"MAX_LENGTH"
+			],
+			[
+				"fac",
+				"factorial_for"
+			],
+			[
+				"fact",
+				"factorial_while"
+			],
+			[
+				"cate",
+				"category"
+			],
+			[
+				"post",
+				"posts_per_page"
+			],
+			[
+				"pos",
+				"posts_per_page"
+			],
+			[
+				"post_",
+				"post_2"
+			],
+			[
+				"st",
+				"style"
+			],
+			[
+				"bac",
+				"backgroundcode"
+			],
+			[
+				"back",
+				"backgroundcode"
+			],
+			[
+				"get_me",
+				"get_media_url"
+			],
+			[
+				"descr",
+				"description"
+			],
+			[
+				"border-r",
+				"border-right"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"cat",
+				"category"
+			],
+			[
+				"forb",
+				"forbidden_words_reg"
+			],
+			[
+				"error",
+				"error_type"
+			],
+			[
+				"h",
+				"hidden"
+			],
+			[
+				"form-fi",
+				"form-field-input-success"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"fie",
+				"field"
+			],
+			[
+				"form-field",
+				"form-field-input"
+			],
+			[
+				"punt",
+				"punto_final"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"slug",
+				"slug_input"
+			],
+			[
+				"val",
+				"validate_event"
+			],
+			[
+				"ads",
+				"adsense-width"
+			],
+			[
+				"term",
+				"terms"
+			],
+			[
+				"ip",
+				"ip_log_path"
+			],
+			[
+				"i",
+				"if?	$… = ( … ) ? … : …"
+			],
+			[
+				"REC",
+				"RECAPTCHA_PRIVATE_KEY"
+			],
+			[
+				"err",
+				"error"
+			],
+			[
+				"recapt",
+				"recaptcha_response_field"
+			],
+			[
+				"rec",
+				"recaptcha_challenge_field"
+			],
+			[
+				"fiel",
+				"field"
+			],
+			[
+				"field",
+				"field_error"
+			],
+			[
+				"inc",
+				"incl	include …"
+			],
+			[
+				"req",
+				"required_fields"
+			],
+			[
+				"preg_repla",
+				"preg_replace_callback"
+			],
+			[
+				"corr",
+				"correct_syntax"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"ec_stars_rating_e",
+				"ec_stars_rating_enable_widget"
+			],
+			[
+				"edit_o",
+				"edit_own_posts"
+			],
+			[
+				"post_d",
+				"post_id"
+			],
+			[
+				"the_p",
+				"the_post_author_meta"
+			],
+			[
+				"arra",
+				"array"
+			],
+			[
+				"appro",
+				"approved"
+			],
+			[
+				"prev",
+				"previous_status"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"b",
+				"block"
+			],
+			[
+				"c",
+				"comment"
+			],
+			[
+				"comm",
+				"comment_parent"
+			],
+			[
+				"author_",
+				"author_url"
+			],
+			[
+				"co",
+				"con	function __construct"
+			],
+			[
+				"comment",
+				"comment_author"
+			],
+			[
+				"auh",
+				"author_id"
+			],
+			[
+				"commen",
+				"comment_authors"
+			],
+			[
+				"author",
+				"author_id"
+			],
+			[
+				"a",
+				"authors"
+			],
+			[
+				"comme",
+				"comment_author"
+			],
+			[
+				"come",
+				"comment"
+			],
+			[
+				"app",
+				"approved_comments"
+			],
+			[
+				"getT",
+				"getThemeDir"
+			],
+			[
+				"previe",
+				"preview_theme"
+			],
+			[
+				"v",
+				"view"
+			],
+			[
+				"theme",
+				"theme"
+			],
+			[
+				"els",
+				"else"
+			],
+			[
+				"th",
+				"theme_alias"
+			],
+			[
+				"them",
+				"theme_info"
+			],
+			[
+				"the",
+				"theme_info"
+			],
+			[
+				"request",
+				"REQUEST_METHOD"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"origi",
+				"original_config"
+			],
+			[
+				"langu",
+				"language"
+			],
+			[
+				"ve",
+				"View"
+			],
+			[
+				"_SE",
+				"_SERVER"
+			],
+			[
+				"Form",
+				"FormData"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"rss",
+				"rss_feed"
+			],
+			[
+				"glo",
+				"global"
+			],
+			[
+				"categ",
+				"category"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"pare",
+				"parentNode"
+			],
+			[
+				"tag",
+				"tags"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"script",
+				"scripts"
+			],
+			[
+				"ori",
+				"originalElement"
+			],
+			[
+				"ins",
+				"insertBefore"
+			],
+			[
+				"first",
+				"firstChild"
+			],
+			[
+				"fir",
+				"firstChild"
+			],
+			[
+				"or",
+				"original_value"
+			],
+			[
+				"dom",
+				"DOM"
+			],
+			[
+				"css",
+				"cssmin"
+			],
+			[
+				"ugl",
+				"uglify_assoc"
+			],
+			[
+				"ou",
+				"output_path"
+			],
+			[
+				"out",
+				"output_png"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ec-stars-rating.php",
+			"settings":
+			{
+				"buffer_size": 17643,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "readme.md",
+			"settings":
+			{
+				"buffer_size": 2048,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "readme.txt",
+			"settings":
+			{
+				"buffer_size": 2514,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "readme-es.txt",
+			"settings":
+			{
+				"buffer_size": 2843,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "readme-es.md",
+			"settings":
+			{
+				"buffer_size": 2366,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/Verilog.sublime-build",
+	"command_palette":
+	{
+		"height": 79.0,
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: html5"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: html",
+				"Snippet: html"
+			],
+			[
+				"Package Control: I",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 435.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/var/www/doncuponesnuevo/public/assets/sass/site/_home-newsletter-form.scss",
+		"/var/www/doncuponesnuevo/includes/Config.php",
+		"/var/www/doncuponesnuevo/app/App.php",
+		"/var/www/doncuponesnuevo/app/HTTP/Response.php",
+		"/var/www/doncuponesnuevo/includes/Mailchimp/Lists.php",
+		"/var/www/doncuponesnuevo/controllers/newsletter.php",
+		"/var/www/doncuponesnuevo/assets/sass/style.scss",
+		"/var/www/doncuponesnuevo/views/header.php",
+		"/var/www/doncuponesnuevo/assets/sass/site/_home-newsletter-form.scss",
+		"/var/www/doncuponesnuevo/app/Database/DB.php",
+		"/var/www/doncuponesnuevo/environments/PRODUCTION.php",
+		"/var/www/doncuponesnuevo/environments/DEVELOPMENT.php",
+		"/var/www/doncuponesnuevo/views/home/index.php",
+		"/var/www/doncuponesnuevo/controllers/home.php",
+		"/var/www/doncuponesnuevo/index.php",
+		"/var/www/doncuponesnuevo/assets/sass/site/_home-slider.scss",
+		"/var/www/doncuponesnuevo/assets/sass/site/_featured-home.scss",
+		"/var/www/doncuponesnuevo/assets/sass/site/_header.scss",
+		"/var/www/doncuponesnuevo/assets/js/home.js",
+		"/var/www/doncuponesnuevo/newsletter/mcapi_listSubscribe.php",
+		"/var/www/doncuponesnuevo/assets/js/responsiveslides.min.js",
+		"/var/www/doncuponesnuevo/includes/Mailchimp/Campaigns.php",
+		"/var/www/doncuponesnuevo/schema.sql",
+		"/tmp/fz3temp-1/index.php",
+		"/home/emilio/Escritorio/08-05.v",
+		"/tmp/fz3temp-1/nucleo.php",
+		"/tmp/fz3temp-1/secciones.css",
+		"/home/emilio/Escritorio/secciones.php",
+		"/tmp/fz3temp-1/secciones.php",
+		"/var/www/doncuponesnuevo/models/configuracion.php",
+		"/var/www/doncuponesnuevo/models/shop.php",
+		"/var/www/doncuponesnuevo/config.php",
+		"/var/www/doncuponesnuevo/models/destacada.php",
+		"/home/emilio/Descargas/tor-browser_en-US/start-tor-browser",
+		"/home/emilio/.cache/.fr-wkja1o/forobeta/index.php",
+		"/home/emilio/.cache/.fr-X8pGdE/forobeta/index.php",
+		"/var/www/c/seno.c",
+		"/var/www/c/06-12-suma-matrices.c",
+		"/var/www/c/06-11-tabla.c",
+		"/var/www/c/06-09-estadis.c",
+		"/home/emilio/Escritorio/blog-articulos.com/css/global.css",
+		"/home/emilio/Escritorio/blog-articulos.com/index.html",
+		"/tmp/fz3temp-1/.htaccess",
+		"/home/emilio/Escritorio/blog-articulos.com/fonticons/entypo-min.svg",
+		"/var/www/c/06-07-invertir.c",
+		"/var/www/c/06-08-invertir-cadena.c",
+		"/var/www/c/06-06-lista.c",
+		"/var/www/c/05-11-factorial.c",
+		"/var/www/c/06-08-invertir.c",
+		"/var/www/c/05-10-dibujo-1.c",
+		"/var/www/c/05-00-bucles.c",
+		"/var/www/c/05-15-notas.c",
+		"/var/www/c/05-15-bucles.c",
+		"/home/emilio/Escritorio/GORDA-BAK/functions.php",
+		"/home/emilio/.cache/.fr-XeRFvW/pinboardthm/404.php",
+		"/var/www/minicms/posts/un-post-nuevo.json",
+		"/var/www/minicms/includes/CMS/Site.php",
+		"/var/www/minicms/includes/CMS/Database.php",
+		"/var/www/minicms/includes/settings.json",
+		"/var/www/minicms/includes/CMS/Page.php",
+		"/var/www/minicms/template/default/index.php",
+		"/var/www/minicms/posts/post-super-antiguo.json",
+		"/var/www/minicms/template/default/post-index.php",
+		"/var/www/minicms/template/default/category.php",
+		"/var/www/minicms/template/default/footer.php",
+		"/var/www/minicms/template/default/widgets/pagination.php",
+		"/var/www/minicms/generator.php",
+		"/var/www/minicms/template/default/widgets/stats.php",
+		"/home/emilio/Escritorio/k.php",
+		"/var/www/minicms/data.json",
+		"/var/www/minicms/metadata.json",
+		"/var/www/minicms/includes/CMS/DB.php",
+		"/var/www/minicms/includes/CMS/Settings.php",
+		"/home/emilio/Escritorio/3-8.v",
+		"/home/emilio/Escritorio/3-9.v",
+		"/home/emilio/.config/sublime-text-2/Packages/User/Verilog.sublime-build",
+		"/home/emilio/Descargas/template-7544277506140857620.xml",
+		"/var/www/c/lib/program.h",
+		"/var/www/c/lib/message-linux.h",
+		"/var/www/c/lib/message-windows.h",
+		"/var/www/c/lib/message.h",
+		"/var/www/c/base.c",
+		"/var/www/c/operaciones.c",
+		"/var/www/c/lib/str.h",
+		"/tmp/fz3temp-1/BoardIndex.template 2.php",
+		"/tmp/fz3temp-1/MessageIndex.template.php",
+		"/tmp/fz3temp-1/Display.template.php",
+		"/tmp/fz3temp-1/BoardIndex.template.php",
+		"/var/www/cms/admin/views/header.php",
+		"/var/www/cms/admin/views/dashboard/media-upload.php",
+		"/var/www/cms/admin/views/dashboard/media-edit.php",
+		"/var/www/cms/create.sql",
+		"/var/www/cms/controllers/admin.php",
+		"/var/www/cms/includes/core-functions.php",
+		"/var/www/cms/admin/views/dashboard/media.php",
+		"/var/www/cms/app/Database/DB.php",
+		"/var/www/cms/admin/views/dashboard/users.php",
+		"/var/www/cms/uploads/2013/10/16/Captura de pantalla de 2013-05-15 21:56:21.png",
+		"/var/www/cms/app/Image.php",
+		"/var/www/cms/app/HTTP/Url.php",
+		"/var/www/cms/themes/default/post.php",
+		"/var/www/cms/admin/assets/sass/sections/_header.scss",
+		"/var/www/cms/admin/views/dashboard/post.php",
+		"/var/www/cms/admin/assets/js/edit.js",
+		"/var/www/cms/admin/assets/sass/partials/ui/_btn.scss",
+		"/var/www/cms/admin/assets/sass/admin.scss",
+		"/var/www/cms/admin/assets/sass/partials/ui/_message.scss",
+		"/var/www/cms/admin/assets/sass/_icomoon.scss",
+		"/home/emilio/.cache/.fr-aaDN4b/icomoon26074/style.css",
+		"/home/emilio/.cache/.fr-4NwCMx/icomoon74302/style.css",
+		"/home/emilio/.cache/.fr-pCMgsJ/icomoon51119/style.css",
+		"/var/www/cms/admin/assets/css/admin.css",
+		"/home/emilio/.cache/.fr-Dfm6TQ/icomoon29748/style.css",
+		"/var/www/cms/admin/assets/sass/sections/_pagination.scss",
+		"/var/www/cms/admin/views/dashboard/cache.php",
+		"/var/www/minicms/index.php",
+		"/home/emilio/.cache/.fr-kdYLvb/serials.txt",
+		"/var/www/minicms/includes/CMS/Router.php",
+		"/var/www/minicms/posts/post-ejemplo.json",
+		"/var/www/minicms/includes/CMS/Post.php",
+		"/var/www/minicms/site.json",
+		"/var/www/minicms/template/default/500.php",
+		"/var/www/minicms/template/default/404.php",
+		"/var/www/minicms/includes/CMS/Route.php",
+		"/var/www/minicms/template/default/header.php",
+		"/var/www/minicms/includes/CMS/Url.php",
+		"/var/www/minicms/template/default/post.php",
+		"/var/www/cms/install.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<project>",
+			"/var/www/aweber",
+			"/var/www/browser-diet/src/documents",
+			"/var/www/browser-diet",
+			"/var/www/browser-diet/src/documents"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"tiempo",
+			"tiempo =",
+			"caduc",
+			"idfalso",
+			"estado",
+			"exclusivo",
+			"subscribe(",
+			"<?php",
+			"cupones descuento para",
+			"cupones descuento",
+			"cupon",
+			"susc",
+			"suscrí",
+			"'))",
+			"int(255)",
+			"utf8_general_ci",
+			"MyISAM",
+			" CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL",
+			"CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,",
+			"25",
+			"ld",
+			"eval(",
+			"base64_decode",
+			"base64",
+			"k2ll33d",
+			"k2",
+			"passthru",
+			"pass",
+			"<b:include name='quickedit'/>",
+			"BACKGROUND",
+			"tbody",
+			"lastpost",
+			"<td class=",
+			"audio",
+			"edit",
+			"save",
+			"-0|\\[\\]",
+			"0",
+			"cache",
+			") ",
+			"\\$error_messages\\['(.*)'\\]",
+			":invalid",
+			"blacklist",
+			"1em",
+			"recaptcha",
+			"min-height",
+			"pattern",
+			"adjal",
+			"post.body/",
+			"[code]",
+			"recaptcha_get_html",
+			"\"dia",
+			"dia",
+			"<!-- adsense ([0-9]) -->",
+			"action_index",
+			"data",
+			"neta",
+			"postmeta",
+			"><?",
+			"action",
+			".pure",
+			"dobles puntos",
+			"\"__LINEBREAK__PLACEHOLDER__\"",
+			"ec_stars_rating_enable",
+			"cache",
+			"'post_' . $post->id . '_content_filtered'",
+			"cache",
+			"site.",
+			"self::",
+			"category",
+			"slug",
+			"console.log",
+			"loaded",
+			"require",
+			"append(",
+			"\n		",
+			"window",
+			"result",
+			"result = ",
+			"parse()",
+			"$user",
+			"cache",
+			"create",
+			"position",
+			"\\.on\\(",
+			".on\\(",
+			".on(",
+			"clip: rect(1px 1px 1px 1px);",
+			"self::",
+			"\\$em_strong_prepared_relist",
+			"\\$\\$method",
+			"stripLinkDefinitions",
+			"\\$stripLinkDefinitions",
+			"stripLinkDefinitions",
+			"__CLASS__",
+			"_stripLinkDefinitions_callbac",
+			"&\\$this,",
+			"&$this,",
+			"var \\$",
+			"transform($text)",
+			"$text",
+			"transform()",
+			"\\$this->",
+			"\\$this->([0-9A-Z]+)\\((.*?)\\)",
+			"function\\s",
+			"\\$this->([0-9a-z_]+)\\((\\$text)?\\)",
+			".\"\\\">$",
+			"set_posts_meta",
+			"set_current_post",
+			"cialis",
+			"viagra",
+			"cesx.com/&#039; title=&#039;viagra no prescription&#039;>viagra no prescription ",
+			"cesx.com/&#039; title=&#039;viagra no prescription&#039;>viagra no prescription",
+			"<([a-z]+) style=(&#039;|''|\")display: ?none\\2/?><a href=(&#039;|''|\")(.*)?\\3 ?>(.*)?</a>",
+			"<a href=''(.*)?''>(.*)?</a>",
+			"<([a-z]) style=\"display: ?none\"/?>(.*)?</\\1>",
+			"<([a-zA-z]+) style=\"display: none\">(.*?)",
+			"viagra",
+			"<div style=\"display: none\"/?><a (.*)?</a>",
+			"<div style=\"display: none\">(.*?)</div>",
+			"<div style=\"display: none\"><a href=''http://buy-cialis-onlineq.com''>buy cialis discount</a></div>",
+			"okbutton",
+			"prompt:",
+			"EC.UI",
+			"UI",
+			"onclick",
+			"onclick:",
+			"\\"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"BIGINT",
+			"utf8",
+			"InnoDB",
+			" NOT NULL",
+			"",
+			"FOREGROUND",
+			"",
+			"{{i}}",
+			"i",
+			"$error->getMessage('$1')",
+			"<pre>",
+			"<div class=\"adsense adsense-$1\"></div>",
+			".styled",
+			"$linebreak_placeholder",
+			"site_",
+			"static::",
+			"$method",
+			"__CLASS__,",
+			"__CLASS__",
+			"static $",
+			"self::$",
+			"self::$1($2)",
+			"public static function ",
+			"self::$1($2)",
+			"",
+			"UI",
+			"/",
+			"\\n,\"$2\": $1",
+			"\\n\"$2\": $1",
+			"\\n\"$2\":$1",
+			"\\n\"$2\":\"$1\"",
+			"\"$2\":",
+			"\"$2\": $1",
+			",$1",
+			"parseFloat(inp.value, 10)",
+			"",
+			" || ",
+			"@include inline-block",
+			"",
+			"sublime-text-2.desktop"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ec-stars-rating.php",
+					"settings":
+					{
+						"buffer_size": 17643,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								254,
+								254
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "readme.md",
+					"settings":
+					{
+						"buffer_size": 2048,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1258,
+								1258
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "readme.txt",
+					"settings":
+					{
+						"buffer_size": 2514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								182,
+								182
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "readme-es.txt",
+					"settings":
+					{
+						"buffer_size": 2843,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								182,
+								182
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "readme-es.md",
+					"settings":
+					{
+						"buffer_size": 2366,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1537,
+								1537
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 360.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 194.0,
+	"status_bar_visible": true
+}
