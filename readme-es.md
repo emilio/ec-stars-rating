@@ -37,6 +37,9 @@ Actualmente, microdata es el recomendado por Google, pero con microformats Googl
 
 ## Changelog ##
 
+### 1.0.7 ###
+Asegurar compatibilidad con WP 3.9
+
 ### 1.0.6 ###
 Añadir metadatos de mejor puntuación para evitar error en GWT
 

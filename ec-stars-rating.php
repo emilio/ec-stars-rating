@@ -3,7 +3,7 @@
 Plugin Name: EC Stars Rating
 Plugin URI: http://emiliocobos.net/ec-stars-rating-wordpress-plugin
 Description: EC Stars rating is the most lightweight and simple stars rating system for WordPress you can find in the whole directory
-Version: 1.0.6
+Version: 1.0.7
 Author: Emilio Cobos Álvarez
 Author URI: http://emiliocobos.net/
 */
@@ -40,7 +40,7 @@ class ECStarsRating {
 		add_action('plugins_loaded', array($this, '_load_textdomain'));
 		// Add the head script and styles
 		add_action('wp_head', array($this, 'head'));
-		
+
 		// Experimental, the widget class
 		add_action('widgets_init', array($this, '_register_widgets'));
 
@@ -143,7 +143,7 @@ class ECStarsRating {
 				text-align: center;
 				max-width: 100px;
 				margin-left: -50px;
-				
+
 				background: rgba(0,0,0,.7);
 				color: white;
 				font-size: 10px;
@@ -228,7 +228,7 @@ class ECStarsRating {
 		// $wpdb->query($wpdb->prepare("DROP TABLE %s", $this->getTableName()));
 	}
 
-	/** 
+	/**
 	 * Register the settings page for the admin
 	 */
 	public function _register_settings() {
@@ -309,7 +309,7 @@ class ECStarsRating {
 				`post_id` BIGINT(20) UNSIGNED NOT NULL,
 				KEY `post_id`(`post_id`),
 				KEY `voter_ip`(`voter_ip`));";
-		
+
 		$wpdb->query($sql);
 	}
 
@@ -360,7 +360,7 @@ class ECStarsRating {
 		if( ! defined('YEAR_IN_SECONDS') ) {
 			define('YEAR_IN_SECONDS', 365 * 24 * 60 * 60);
 		}
-		
+
 		/* Get the POST request data */
 		// The post id
 		$post_id = intval(@$_POST['post_id']);
@@ -423,7 +423,7 @@ class ECStarsRating {
 			<?php screen_icon(); ?>
 			<h2><?php printf(__('Options: %s', self::$textdomain), 'EC Stars Rating'); ?></h2>
 			<form action="options.php" method="post">
-				<?php 
+				<?php
 					settings_fields( 'ec_stars_rating' );
 					do_settings_sections( __FILE__ );
 				?>
@@ -503,7 +503,7 @@ class ECStarsRating {
 		// Cast them as int
 		$votes = intval($votes);
 		$rating = intval($rating);
-		
+
 		// Prevent division by 0
 		if( $votes === 0 ) {
 			$result = 0;
