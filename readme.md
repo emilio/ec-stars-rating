@@ -31,6 +31,9 @@ Actually, microdata is recommended by Google, but with microformats google detec
 
 ## Changelog ##
 
+### 1.0.8 ###
+Ensure WP 4.1 compatibility
+
 ### 1.0.7 ###
 Ensure WP 3.9 compatibility
 
