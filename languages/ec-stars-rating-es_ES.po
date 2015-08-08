@@ -1,0 +1,152 @@
+# Copyright (C) 2013 EC Stars Rating
+# This file is distributed under the same license as the EC Stars Rating package.
+msgid ""
+msgstr ""
+"Project-Id-Version: EC Stars Rating 1.0.4\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/ec-stars-rating\n"
+"POT-Creation-Date: 2013-06-05 02:03:35+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-06-05 04:11+0100\n"
+"Last-Translator: Emilio Cobos Álvarez <ecoal95@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ec-stars-rating-widget.php:7
+msgid "EC stars rating's best rated posts"
+msgstr "Posts más valorados por EC Stars Rating"
+
+#: ec-stars-rating-widget.php:8
+msgid "Best rated posts widget"
+msgstr "Widget de los posts más valorados"
+
+#: ec-stars-rating-widget.php:60
+msgid "Top Rated Posts"
+msgstr "Posts más valorados"
+
+#: ec-stars-rating-widget.php:64
+msgid "Title:"
+msgstr "Título:"
+
+#: ec-stars-rating-widget.php:68
+msgid "Number of posts to display:"
+msgstr "Número de posts a mostrar:"
+
+#: ec-stars-rating.php:100
+msgid "You've voted correctly"
+msgstr "Has votado correctamente"
+
+#: ec-stars-rating.php:101
+msgid "You had previously voted"
+msgstr "Ya habías votado anteriormente"
+
+#: ec-stars-rating.php:102
+msgid "The request was malformed, try again"
+msgstr "La solicitud fue mal formada, prueba de nuevo"
+
+#: ec-stars-rating.php:103
+msgid "An unknown error has occurred, try to vote again"
+msgstr "Ha ocurrido un error desconocido, prueba a votar otra vez"
+
+#: ec-stars-rating.php:238
+msgid ""
+"Stars size in px <em>default is 32, chose the one that fits your needs</em>"
+msgstr ""
+"Tamaño de las estrellas en px <em>por defecto es 32, escoge el que mejor se "
+"adapte a tus necesidades</em>"
+
+#: ec-stars-rating.php:246
+msgid "The color of the non-active stars"
+msgstr "El color de las estrellas no activas"
+
+#: ec-stars-rating.php:254
+msgid "Color of the stars when you hover over them or the voted stars"
+msgstr ""
+"Color de las estrellas al pasar el raton por encima o las estrellas votadas"
+
+#: ec-stars-rating.php:262
+msgid "Color of the stars when you click"
+msgstr "Color de las estrellas cuando haces click"
+
+#: ec-stars-rating.php:270
+msgid "Show the votes?"
+msgstr "¿Mostrar los votos?"
+
+#: ec-stars-rating.php:279
+msgid ""
+"Use microformats? (otherwise microdata will be used) (<small>Microdata is "
+"recommended, but google will show your microformats' stars</small>)"
+msgstr ""
+"¿Usar microformats? (si no se usará microdata) (<small>Microdata es el "
+"recomendado, pero google sólo mostrará las estrellas con microformats</"
+"small>)"
+
+#: ec-stars-rating.php:287
+msgid ""
+"Use jQuery? (Most of WordPress sites use it, but maybe you don't)<br/"
+"><small><em>Note: if you don't use jQuery, IE7 is not supported</em></small>"
+msgstr ""
+"¿Usar jQuery? (La mayoría de los sitios en WordPress lo usan, pero a lo "
+"mejor tú no)<br/><small><em>Nota: si no usas jQuery, IE7 no estará "
+"soportado</em></small>"
+
+#: ec-stars-rating.php:295
+msgid ""
+"Enable widget? (<small>You can disable it if you want an extra performance "
+"boost</small>)"
+msgstr ""
+"Activar el widget? (<small>Puedes desactivarlo si quieres un pequeño "
+"rendimiento extra</small>)"
+
+#: ec-stars-rating.php:327
+msgid "Choose a valid color"
+msgstr "Escoge un color válido"
+
+#: ec-stars-rating.php:336
+msgid "EC Stars Rating Options"
+msgstr "Opciones de EC Stars Rating"
+
+#: ec-stars-rating.php:422
+msgid "Options: %s"
+msgstr "Opciones: %s"
+
+#: ec-stars-rating.php:463
+msgid "Yes"
+msgstr "Sí"
+
+#: ec-stars-rating.php:464
+msgid "No"
+msgstr "No"
+
+#: ec-stars-rating.php:532
+msgid "votes"
+msgstr "votos"
+
+#: ec-stars-rating.php:540
+msgid "You need to enable JavaScript to vote"
+msgstr "Necesitas activar Javascript para votar"
+
+#. Plugin Name of the plugin/theme
+msgid "EC Stars Rating"
+msgstr "EC Stars Rating"
+
+#. Plugin URI of the plugin/theme
+msgid "http://emiliocobos.net/ec-stars-rating-wordpress-plugin"
+msgstr "http://emiliocobos.net/ec-stars-rating-wordpress-plugin"
+
+#. Description of the plugin/theme
+msgid ""
+"EC Stars rating is the most lightweight and simple stars rating system for "
+"WordPress you can find in the whole directory"
+msgstr ""
+"EC Stars rating es el sistema de calificación por estrellas más sencillo y "
+"ligero que podrás encontrar en todo el directorio"
+
+#. Author of the plugin/theme
+msgid "Emilio Cobos Álvarez"
+msgstr "Emilio Cobos Álvarez"
+
+#. Author URI of the plugin/theme
+msgid "http://emiliocobos.net/"
+msgstr "http://emiliocobos.net/"
