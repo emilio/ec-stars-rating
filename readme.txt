@@ -4,7 +4,7 @@ Donate link: http://emiliocobos.net/donar/
 Tags: stars, rating, posts rating
 Requires at least: 3.0
 Tested up to: 4.3
-Stable tag: 1.0.9
+Stable tag: 1.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ Actually, microdata is recommended by Google, but with microformats google detec
 2. Plugin admin panel
 
 == Changelog ==
+
+= 1.0.10 =
+Add russian translation
 
 = 1.0.9 =
 Ensure WP 4.3 compatibility

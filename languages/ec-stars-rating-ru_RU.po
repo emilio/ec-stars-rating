@@ -1,0 +1,134 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EC Stars Rating\n"
+"POT-Creation-Date: 2015-10-21 04:37+0900\n"
+"PO-Revision-Date: 2015-10-21 04:53+0900\n"
+"Last-Translator: Filippov Egor <filippov@filwebs.ru>\n"
+"Language-Team: filwebs.ru <filippov@filwebs.ru>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: ec-stars-rating-widget.php:6
+msgid "EC stars rating's best rated posts"
+msgstr "Лучшие по звездному рейтингу"
+
+#: ec-stars-rating-widget.php:7
+msgid "Best rated posts widget"
+msgstr "Виджет список лучших по рейтингу статей "
+
+#: ec-stars-rating-widget.php:59
+msgid "Top Rated Posts"
+msgstr "Лучшие в рейтинге публикации"
+
+#: ec-stars-rating-widget.php:63
+msgid "Title:"
+msgstr "Название:"
+
+#: ec-stars-rating-widget.php:67
+msgid "Number of posts to display:"
+msgstr "Количество отображаемых записей."
+
+#: ec-stars-rating.php:99
+msgid "You've voted correctly"
+msgstr "Вы уже проголосовали"
+
+#: ec-stars-rating.php:100
+msgid "You had previously voted"
+msgstr "Вы уже голосовали"
+
+#: ec-stars-rating.php:101
+msgid "The request was malformed, try again"
+msgstr "Неверный запрос, попробуйте ещё раз"
+
+#: ec-stars-rating.php:102
+msgid "An unknown error has occurred, try to vote again"
+msgstr "Неизвестная ошибка произошла, попробуйте еще раз голосовать"
+
+#: ec-stars-rating.php:237
+msgid ""
+"Stars size in px <em>default is 32, chose the one that fits your needs</em>"
+msgstr ""
+"Звезды размер в рх <em>по умолчанию 32, выберите тот, который соответствует "
+"вашим потребностям</em>"
+
+#: ec-stars-rating.php:245
+msgid "The color of the non-active stars"
+msgstr "Цвет активных звезд"
+
+#: ec-stars-rating.php:253
+msgid "Color of the stars when you hover over them or the voted stars"
+msgstr "Цвет звезд при наведении на них или проголосовали звёзд"
+
+#: ec-stars-rating.php:261
+msgid "Color of the stars when you click"
+msgstr "Цвет звезд при нажатии"
+
+#: ec-stars-rating.php:269
+msgid "Show the votes?"
+msgstr "Показать голоса?"
+
+#: ec-stars-rating.php:278
+msgid ""
+"Use microformats? (otherwise microdata will be used) (<small>Microdata is "
+"recommended, but google will show your microformats' stars</small>)"
+msgstr ""
+"Использовать микроформаты? (<small>Рекомендуется микроформат, иначе Google "
+"не будет показывать разметку микроформатов звёзд</small>)"
+
+#: ec-stars-rating.php:286
+msgid ""
+"Use jQuery? (Most of WordPress sites use it, but maybe you don't)<br/"
+"><small><em>Note: if you don't use jQuery, IE7 is not supported</em></small>"
+msgstr ""
+"Использование jQuery? (Большинство сайтов WordPress "
+"используют)<br><small><em>Примечание:  jQuery не поддерживается IE7 </em></"
+"small>"
+
+#: ec-stars-rating.php:294
+msgid ""
+"Enable widget? (<small>You can disable it if you want an extra performance "
+"boost</small>)"
+msgstr ""
+"Включить виджет? (<small>Вы можете отключить его, это совсем немного "
+"уменьшит нагрузку на сервер</small>)"
+
+#: ec-stars-rating.php:326
+msgid "Choose a valid color"
+msgstr "Выберите допустимый цвет"
+
+#: ec-stars-rating.php:335
+msgid "EC Stars Rating Options"
+msgstr " Опции EC звездного рейтинга"
+
+#: ec-stars-rating.php:423
+#, php-format
+msgid "Options: %s"
+msgstr "Параметры: %s"
+
+#: ec-stars-rating.php:464
+msgid "Yes"
+msgstr "Да"
+
+#: ec-stars-rating.php:465
+msgid "No"
+msgstr "Нет"
+
+#: ec-stars-rating.php:533
+msgid "votes"
+msgstr "голосов"
+
+#: ec-stars-rating.php:540
+msgid "You need to enable JavaScript to vote"
+msgstr "Вам необходимо включить JavaScript, чтобы проголосовать"
