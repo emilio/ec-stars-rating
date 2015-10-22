@@ -32,6 +32,12 @@ A **super fast** **WordPress star rating plugin**, optimized for SEO, and with a
 
 Actually, microdata is recommended by Google, but with microformats google detects the stars and uses them in your searches ([example](https://www.google.com/search?q=site:emiliocobos.net+ec+stars+rating)).
 
+== Developers ==
+
+The svn repo has been recently synchronized with [a github one](https://github.com/ecoal95/ec-stars-rating).
+
+Contributions are more than welcome, so feel free to submit a PR there if you wish :)
+
 == Screenshots ==
 
 1. Plugin basic style
