@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="ECStarsRating">
+  <rule ref="PSR2"/>
+  <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+    <severity>0</severity>
+  </rule>
+
+  <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+    <severity>0</severity>
+  </rule>
+
+  <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+    <severity>0</severity>
+  </rule>
+</ruleset>
