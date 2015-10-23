@@ -1,5 +1,19 @@
 /**
- * @author Emilio Cobos (http://emiliocobos.net)
+ * EC-stars-rating
+ * Copyright (C) 2015 Emilio Cobos Álvarez (http://emiliocobos.me)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, see http://github.com/ecoal95/ec-stars-rating/blob/master/LICENSE
  */
 ;(function (window, document) {
 	// The wordpress passed script
@@ -64,7 +78,7 @@
 
 	/**
 	 * Make a post AJAX request with a desired URL, passed data, and callback
-	 * 
+	 *
 	 * @param {String} url
 	 * @param {String|FormData} data
 	 * @param {Function} callback
@@ -116,7 +130,7 @@
 					update_value(response.result, response.votes);
 					show_message(globaldata.messages.success);
 					break;
-				default: 
+				default:
 					show_message(globaldata.messages.unknown);
 			}
 			voting = false;
@@ -162,7 +176,7 @@
 		}
 
 		ec_stars_loaded = true;
-		
+
 		elements = document.querySelectorAll('.ec-stars-wrapper');
 
 		forEach(elements, function() {
