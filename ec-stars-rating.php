@@ -535,11 +535,13 @@ class ECStarsRating
         $votes = get_post_meta($post->ID, 'ec_stars_rating_count', true);
         $microformats = get_option('ec_stars_rating_use_microformats');
 
-        // if the rating is an empty string (we cannot use empty because empty('0') is true) create the post meta
+        // if the rating is an empty string (we cannot use empty because
+        // empty('0') is true) create the post meta
         if ($rating === '') {
             $rating = 0;
             add_post_meta($post->ID, 'ec_stars_rating', 0);
         }
+
         // The same but for the votes count
         if ($votes === '') {
             $votes = 0;
@@ -556,9 +558,12 @@ class ECStarsRating
         } else {
             $result = $rating / $votes;
         }
-    // Show the data!
+
+        // We don't want to show metadata when there are no votes
+        // See: https://github.com/ecoal95/ec-stars-rating/issues/2
+        $show_meta = $votes !== 0;
     ?>
-      <div class="ec-stars-outer<?php echo ($microformats) ? ' hreview-aggregate' : '" itemscope itemtype="http://schema.org/AggregateRating'; ?>">
+      <div class="ec-stars-outer<?php if($show_meta) echo ($microformats) ? ' hreview-aggregate' : '" itemscope itemtype="http://schema.org/AggregateRating'; ?>">
         <div class="ec-stars-wrapper" data-post-id="<?php echo $post->ID ?>">
             <div class="ec-stars-overlay" style="width: <?php echo (100 - $result * 100 / 5) ?>%"></div>
             <a href="#" data-value="1" title="1/5">&#9733;</a>
@@ -567,24 +572,22 @@ class ECStarsRating
             <a href="#" data-value="4" title="4/5">&#9733;</a>
             <a href="#" data-value="5" title="5/5">&#9733;</a>
         </div>
-        <?php if (get_option('ec_stars_rating_show_votes')) : // If we want to show the votes?>
+        <?php if (get_option('ec_stars_rating_show_votes')): // If we want to show the votes ?>
             <div class="ec-stars-value">
                 <?php if ($microformats) : // If we want to use microformats we need to put a link to the post?>
-                <span class="item">
-                    <a href="<?php the_permalink() ?>" class="fn url"><?php the_title() ?></a>,
-                </span><?php
-endif; ?>
-                <span <?php echo 'class="ec-stars-rating-value'; echo ($microformats) ? ' rating"' : '" itemprop="ratingValue"' ?>><?php
-                    // Show just two decimals
-                    echo is_int($result) ? $result : number_format($result, 2);
-        ?></span> / <span <?php echo ($microformats) ? 'class="best"' : 'itemprop="bestRating"' ?>>5</span> (<span<?php echo ' class="ec-stars-rating-count'; echo ($microformats) ? ' votes"' : '" itemprop="ratingCount"' ?>><?php echo $votes ?></span> <?php _e('votes', self::$textdomain) ?>)
+                    <span class="<?php if ($show_meta) echo 'item'; ?>">
+                        <a href="<?php the_permalink() ?>" class="<?php if ($show_meta) echo 'fn url'; ?>"><?php the_title() ?></a>,
+                    </span>
+                <?php endif; ?>
+                <span class="ec-stars-rating-value<?php if($show_meta) echo ($microformats) ? ' rating' : '" itemprop="ratingValue'; ?>">
+                    <?php echo is_int($result) ? $result : number_format($result, 2); // Show just two decimals ?>
+                </span> / <span <?php if($show_meta) echo ($microformats) ? 'class="best"' : 'itemprop="bestRating"' ?>>5</span>
+                (<span class="ec-stars-rating-count<?php if($show_meta) echo ($microformats) ? ' votes' : '" itemprop="ratingCount' ?>"><?php echo $votes ?></span> <?php _e('votes', self::$textdomain) ?>)
             </div>
-        <?php
-elseif (! $microformats) : ?>
+        <?php elseif ($show_meta && !$microformats): ?>
             <meta itemprop="ratingValue" content="<?php echo $result ?>">
             <meta itemprop="ratingCount" content="<?php echo $votes ?>">
-        <?php
-endif; ?>
+        <?php endif; ?>
     </div>
     <noscript><?php _e('You need to enable JavaScript to vote', self::$textdomain); ?></noscript>
     <?php
