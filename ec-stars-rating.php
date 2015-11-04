@@ -562,6 +562,7 @@ class ECStarsRating
         // We don't want to show metadata when there are no votes
         // See: https://github.com/ecoal95/ec-stars-rating/issues/2
         $show_meta = $votes !== 0;
+        // @codingStandardsIgnoreStart
     ?>
       <div class="ec-stars-outer<?php if($show_meta) echo ($microformats) ? ' hreview-aggregate' : '" itemscope itemtype="http://schema.org/AggregateRating'; ?>">
         <div class="ec-stars-wrapper" data-post-id="<?php echo $post->ID ?>">
@@ -591,6 +592,7 @@ class ECStarsRating
     </div>
     <noscript><?php _e('You need to enable JavaScript to vote', self::$textdomain); ?></noscript>
     <?php
+        // @codingStandardsIgnoreEnd
     }
 }
 
