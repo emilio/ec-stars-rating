@@ -34,10 +34,10 @@ class ECStarsRating
     /**
      * Response statuses
      */
-    private $STATUS_UNKNOWN = -1;
-    private $STATUS_PREVIOUSLY_VOTED = 0;
-    private $STATUS_SUCCESS = 1;
-    private $STATUS_REQUEST_ERROR = 2;
+    private static $STATUS_UNKNOWN = -1;
+    private static $STATUS_PREVIOUSLY_VOTED = 0;
+    private static $STATUS_SUCCESS = 1;
+    private static $STATUS_REQUEST_ERROR = 2;
 
     /**
      * Create the required actions for the script to appear
@@ -107,10 +107,10 @@ class ECStarsRating
         wp_localize_script('ec-stars-script', 'ec_ajax_data', array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'codes' => array(
-                'SUCCESS' => $this->STATUS_SUCCESS,
-                'PREVIOUSLY_VOTED' => $this->STATUS_PREVIOUSLY_VOTED,
-                'REQUEST_ERROR' => $this->STATUS_REQUEST_ERROR,
-                'UNKNOWN' => $this->STATUS_UNKNOWN
+                'SUCCESS' => self::$STATUS_SUCCESS,
+                'PREVIOUSLY_VOTED' => self::$STATUS_PREVIOUSLY_VOTED,
+                'REQUEST_ERROR' => self::$STATUS_REQUEST_ERROR,
+                'UNKNOWN' => self::$STATUS_UNKNOWN
             ),
             'messages' => array(
                 'success' => __('You\'ve voted correctly', self::$textdomain),
@@ -395,6 +395,16 @@ class ECStarsRating
             define('YEAR_IN_SECONDS', 365 * 24 * 60 * 60);
         }
 
+        // Sanity check
+        if (!isset($_POST['post_id']) ||
+            !isset($_POST['rating']) ||
+            !is_numeric($_POST['post_id']) ||
+            !is_numeric($_POST['rating'])) {
+            die(json_encode(array(
+                'status' => self::$STATUS_REQUEST_ERROR
+            )));
+        }
+
         /* Get the POST request data */
         // The post id
         $post_id = intval(@$_POST['post_id']);
@@ -409,7 +419,7 @@ class ECStarsRating
         // If we have voted set the cookie and return
         if (isset($_COOKIE[$cookie_name]) || $this->getVote($post_id, $IP) !== null) {
             setcookie($cookie_name, 'true', time() + YEAR_IN_SECONDS, '/');
-            die(json_encode(array('status' => $this->STATUS_PREVIOUSLY_VOTED)));
+            die(json_encode(array('status' => self::$STATUS_PREVIOUSLY_VOTED)));
         }
 
 
@@ -423,7 +433,7 @@ class ECStarsRating
               $rating > 5 ||
               $rating < 1) {
             die(json_encode(array(
-                'status' => $this->STATUS_REQUEST_ERROR,
+                'status' => self::$STATUS_REQUEST_ERROR,
                 'current_votes' => $current_votes,
                 'current_rating' => $current_rating
             )));
