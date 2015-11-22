@@ -70,6 +70,11 @@ class ECStarsRating
         // AJAX functionality for admin and for users
         add_action('wp_ajax_ec_stars_rating', array($this, '_handle_vote'));
         add_action('wp_ajax_nopriv_ec_stars_rating', array($this, '_handle_vote'));
+
+        if (get_option('ec_stars_rating_workaround_cache')) {
+            add_action('wp_ajax_ec_stars_rating_workaround_cache', array($this, '_get_stats'));
+            add_action('wp_ajax_nopriv_ec_stars_rating_ec_stars_rating_workaround_cache', array($this, '_get_stats'));
+        }
     }
 
     /**
@@ -98,11 +103,8 @@ class ECStarsRating
      */
     public function headScript()
     {
-        if (get_option('ec_stars_rating_use_jquery')) {
-            wp_enqueue_script('ec-stars-script', plugins_url('/js/ec-stars-rating.js', __FILE__), array('jquery'));
-        } else {
-            wp_enqueue_script('ec-stars-script', plugins_url('/js/ec-stars-rating-nojq.js', __FILE__));
-        }
+        wp_register_script('ec-stars-script', plugins_url('/js/ec-stars-rating.js', __FILE__));
+
         // The script with our messages, url, and status codes
         wp_localize_script('ec-stars-script', 'ec_ajax_data', array(
             'ajax_url' => admin_url('admin-ajax.php'),
@@ -117,8 +119,11 @@ class ECStarsRating
                 'previously_voted' => __('You had previously voted', self::$textdomain),
                 'request_error' => __('The request was malformed, try again', self::$textdomain),
                 'unknown' => __('An unknown error has occurred, try to vote again', self::$textdomain)
-            )
+            ),
+            'workaround_cache' => get_option('ec_stars_rating_workaround_cache')
         ));
+
+        wp_enqueue_script('ec-stars-script');
     }
 
     /**
@@ -226,8 +231,8 @@ class ECStarsRating
         add_option('ec_stars_rating_size', '32');
         add_option('ec_stars_rating_show_votes', true);
         add_option('ec_stars_rating_use_microformats', false);
-        add_option('ec_stars_rating_use_jquery', true);
         add_option('ec_stars_rating_enable_widget', true);
+        add_option('ec_stars_rating_workaround_cache', false);
         add_option('ec_stars_rating_default_color', '#888888');
         add_option('ec_stars_rating_hover_color', '#2782e4');
         add_option('ec_stars_rating_active_color', '#1869c0');
@@ -243,7 +248,8 @@ class ECStarsRating
         delete_option('ec_stars_rating_size');
         delete_option('ec_stars_rating_show_votes');
         delete_option('ec_stars_rating_use_microformats');
-        delete_option('ec_stars_rating_use_jquery');
+        delete_option('ec_stars_rating_enable_widget');
+        delete_option('ec_stars_rating_workaround_cache');
         delete_option('ec_stars_rating_default_color');
         delete_option('ec_stars_rating_hover_color');
         delete_option('ec_stars_rating_active_color');
@@ -304,18 +310,18 @@ class ECStarsRating
             __FILE__
         );
 
-        register_setting('ec_stars_rating', 'ec_stars_rating_use_jquery');
-        add_settings_section(
-            'ec_stars_rating_use_jquery',
-            __('Use jQuery? (Most of WordPress sites use it, but maybe you don\'t)<br/><small><em>Note: if you don\'t use jQuery, IE7 is not supported</em></small>', self::$textdomain),
-            array($this, '_bool_input'),
-            __FILE__
-        );
-
         register_setting('ec_stars_rating', 'ec_stars_rating_enable_widget');
         add_settings_section(
             'ec_stars_rating_enable_widget',
             __('Enable widget? (<small>You can disable it if you want an extra performance boost</small>)', self::$textdomain),
+            array($this, '_bool_input'),
+            __FILE__
+        );
+
+        register_setting('ec_stars_rating', 'ec_stars_rating_workaround_cache');
+        add_settings_section(
+            'ec_stars_rating_workaround_cache',
+            __('Workaround cache?', self::$textdomain),
             array($this, '_bool_input'),
             __FILE__
         );
@@ -407,9 +413,9 @@ class ECStarsRating
 
         /* Get the POST request data */
         // The post id
-        $post_id = intval(@$_POST['post_id']);
+        $post_id = intval($_POST['post_id']);
         // The rating value (1-5)
-        $rating = intval(@$_POST['rating']);
+        $rating = intval($_POST['rating']);
         // The ip
         $IP = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR']
                                                       : $_SERVER['REMOTE_ADDR'];
@@ -456,11 +462,52 @@ class ECStarsRating
 
         // Return a success message
         die(json_encode(array(
-            'status' => $this->STATUS_SUCCESS,
+            'status' => self::$STATUS_SUCCESS,
             'votes' => $current_votes + 1,
             'total' => $current_rating + $rating,
             'result' => ($current_rating + $rating) / ($current_votes + 1)
         )));
+    }
+
+    public function _get_stats()
+    {
+        if (!isset($_POST['post_ids'])) {
+            die(json_encode(array(
+                'status' => self::$STATUS_REQUEST_ERROR
+            )));
+        }
+
+        $post_ids = explode(',', $_POST['post_ids']);
+
+        $info = array();
+
+        foreach ($post_ids as $post_id) {
+            if (!is_numeric($post_id)) {
+                continue;
+            }
+
+            $post_id = intval($post_id);
+
+            $current_rating = get_post_meta($post_id, 'ec_stars_rating', true);
+            $current_votes = get_post_meta($post_id, 'ec_stars_rating_count', true);
+
+            if (empty($current_rating) || empty($current_votes)) {
+                $current_votes = $current_rating = $current_result = 0;
+            } else {
+                $current_votes = intval($current_votes);
+                $current_rating = intval($current_rating);
+                $current_result = $current_rating / $current_votes;
+            }
+
+            $info[] = array(
+                'id' => $post_id,
+                'votes' => $current_votes,
+                'rating' => $current_rating,
+                'result' => $current_result
+            );
+        }
+
+        die(json_encode($info));
     }
 
     /**
@@ -575,7 +622,7 @@ class ECStarsRating
         // @codingStandardsIgnoreStart
     ?>
       <div class="ec-stars-outer<?php if($show_meta) echo ($microformats) ? ' hreview-aggregate' : '" itemscope itemtype="http://schema.org/AggregateRating'; ?>">
-        <div class="ec-stars-wrapper" data-post-id="<?php echo $post->ID ?>">
+        <div id="ec-stars-wrapper-<?php echo $post->ID ?>" class="ec-stars-wrapper" data-post-id="<?php echo $post->ID ?>">
             <div class="ec-stars-overlay" style="width: <?php echo (100 - $result * 100 / 5) ?>%"></div>
             <a href="#" data-value="1" title="1/5">&#9733;</a>
             <a href="#" data-value="2" title="2/5">&#9733;</a>
