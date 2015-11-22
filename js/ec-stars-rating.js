@@ -15,7 +15,9 @@
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, see http://github.com/ecoal95/ec-stars-rating/blob/master/LICENSE
  */
-;(function (window, document) {
+(function (window, document) {
+  "use strict";
+
   var globaldata = null,
     ec_stars_loaded = false,
     voting = false;
@@ -31,10 +33,10 @@
    * @return void
    */
   function forEach(col, callback) {
-    var i = 0,
+    var i,
       len = col.length;
 
-    for( ; i < len; i++ ) {
+    for (i = 0; i < len; i++) {
       callback.call(col[i], col[i], i);
     }
   }
@@ -42,7 +44,7 @@
   function map(ary, callback) {
     var ret = [];
 
-    forEach(ary, function(el) {
+    forEach(ary, function (el) {
       ret.push(callback.call(el, el));
     });
 
@@ -57,25 +59,25 @@
    * @return void
    */
   function addEvent(el, type, callback) {
-    if( el.addEventListener ) {
+    if (el.addEventListener) {
       el.addEventListener(type, callback, false);
-    } else if( el.attachEvent ) {
-      el.attachEvent('on' + type, function(e) {
-        if( ! e ) {
+    } else if (el.attachEvent) {
+      el.attachEvent('on' + type, function (e) {
+        if (!e) {
           e = window.event;
         }
-        if( ! e.preventDefault ) {
-          e.preventDefault = function() {
+        if (!e.preventDefault) {
+          e.preventDefault = function () {
             e.returnValue = false;
-          }
-          e.stopPropagation = function() {
+          };
+          e.stopPropagation = function () {
             e.cancelBubble = true;
-          }
-          e.isDefaultPrevented = function() {
+          };
+          e.isDefaultPrevented = function () {
             return e.returnValue === false;
-          }
+          };
         }
-        if( ! e.target ) {
+        if (!e.target) {
           e.target = e.srcElement;
         }
 
@@ -96,11 +98,11 @@
     var req = new window.XMLHttpRequest();
 
     req.open("POST", url, true);
-    req.onreadystatechange = function() {
+    req.onreadystatechange = function () {
       if (req.readyState === 4) {
         callback(req.responseText);
       }
-    }
+    };
 
     req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -109,12 +111,20 @@
 
 
   function updateValues(root, result, count) {
-    var parent = root.parentNode;
+    var parent = root.parentNode,
+      overlay_el = root.querySelector('.ec-stars-overlay'),
+      count_el = parent.querySelector('.ec-stars-rating-count'),
+      value_el = parent.querySelector('.ec-stars-rating-value');
 
-    root.querySelector('.ec-stars-overlay').style.width = (100 - result * 100 / 5) + '%';
 
-    parent.querySelector('.ec-stars-rating-count').innerHTML = count;
-    parent.querySelector('.ec-stars-rating-value').innerHTML = parseInt(result * 100, 10) / 100;
+    if (overlay_el)
+      overlay_el.style.width = (100 - result * 100 / 5) + '%';
+
+    if (count_el)
+      count_el.innerHTML = count;
+
+    if (value_el)
+      value_el.innerHTML = parseInt(result * 100, 10) / 100;
   }
 
 
@@ -124,7 +134,7 @@
    * @return {Function}
    */
   function ajaxCallback(root, star) {
-    return function(response) {
+    return function (response) {
       var message;
       response = JSON.parse(response);
       message = globaldata.messages.unknown;
@@ -145,7 +155,7 @@
 
       root.setAttribute('data-tooltip', message);
       voting = false;
-    }
+    };
   }
 
   /**
@@ -164,10 +174,11 @@
     if (voting)
       return;
 
-    window.console && console.log(root, star, post_id, rating);
+    if (window.console)
+      console.log(root, star, post_id, rating);
 
     // If we previously voted, or there is something bad in the rating ,stop
-    if( /\bis-voted\b/.test(root.className) || ! rating || rating > 5 || rating < 1)
+    if (/\bis-voted\b/.test(root.className) || ! rating || rating > 5 || rating < 1)
       return;
 
     postRequest(
@@ -192,27 +203,27 @@
 
     var elements = document.querySelectorAll('.ec-stars-wrapper');
 
-    forEach(elements, function(root) {
+    forEach(elements, function (root) {
       var post_id = parseInt(root.getAttribute('data-post-id'), 10);
 
-      forEach(root.querySelectorAll('a'), function(star) {
-        addEvent(star, 'click', function(e) {
+      forEach(root.querySelectorAll('a'), function (star) {
+        addEvent(star, 'click', function (e) {
           e.preventDefault();
           vote(root, this, post_id);
-        })
+        });
       });
     });
 
     if (globaldata.workaround_cache) {
-        var ids = map(elements, function(root) {
+        var ids = map(elements, function (root) {
           return parseInt(root.getAttribute('data-post-id'), 10);
         });
 
         postRequest(globaldata.ajax_url,
                     'action=ec_stars_rating_workaround_cache&post_ids=' + ids.join(','),
-                    function(response) {
+                    function (response) {
                       response = JSON.parse(response);
-                      forEach(response, function(response) {
+                      forEach(response, function (response) {
                         updateValues(document.getElementById('ec-stars-wrapper-' + response.id), response.result, response.votes);
                       });
                     });
@@ -224,4 +235,4 @@
   }
 
   addEvent(window, 'load', init);
-}(window, window.document))
+} (window, window.document));
