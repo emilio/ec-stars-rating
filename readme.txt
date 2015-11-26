@@ -4,11 +4,11 @@ Donate link: http://emiliocobos.net/donar/
 Tags: stars, rating, posts rating
 Requires at least: 3.0
 Tested up to: 4.3
-Stable tag: 1.0.11
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A lightweigt, blazing fast star rating plugin for WordPress
+A lightweigt, blazing fast star rating plugin for WordPress.
 
 == Description ==
 
@@ -28,6 +28,12 @@ A **super fast** **WordPress star rating plugin**, optimized for SEO, and with a
 
 == Frequently asked questions ==
 
+= How to integrate it with WP Super Cache or other cache plugins? =
+
+Cache plugins cache a snapshot of the page, which means new votes may not show up ater a page refresh until the cache is refreshed.
+
+The Workaround Cache option dynamically fetches the page using a single HTTP request, and updates the values with the current ones, so the correct values are always shown.
+
 = What rich snippets format should I use, microdata or microformats? =
 
 Actually, microdata is recommended by Google, but with microformats google detects the stars and uses them in your searches ([example](https://www.google.com/search?q=site:emiliocobos.net+ec+stars+rating)).
@@ -44,6 +50,12 @@ Contributions are more than welcome, so feel free to submit a PR there if you wi
 2. Plugin admin panel
 
 == Changelog ==
+
+= 1.1.0 =
+
+New option (workaround cache) to provide WP super cache integration.
+
+jQuery script is now removed, and thus IE7 compatibility.
 
 = 1.0.11 =
 The plugin will not output metadata when there are no votes (see [issue 2](https://github.com/ecoal95/ec-stars-rating/issues/2))
